@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// IMPORT React Router
+import { BrowserRouter as Router } from 'react-router-dom';
+
+// == IMPORT of container APP
+import App from './containers/App';
+
+// == IMPORT Main style
+import './styles/index.scss';
+
+// == IMPORT store
+import { Provider } from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

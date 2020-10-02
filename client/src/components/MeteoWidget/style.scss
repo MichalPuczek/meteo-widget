@@ -1,0 +1,16 @@
+.widget {
+  height: 80vh;
+  padding: 1vh;
+  overflow: auto;
+
+  .city {
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 2rem;;
+  }
+
+  .info {
+    text-align: left;
+    font-size: 1.3rem;
+  }
+}

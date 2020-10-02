@@ -1,0 +1,17 @@
+@import 'src/styles/vars';
+
+@mixin background {
+  background-image: $mainBackgroundImage;
+  background-size: contain;
+}
+
+@mixin headerANDfooter {
+  height: 10vh;
+  border-top: 3px solid white;
+}
+
+@mixin flexedANDcentered ($position) {
+  display: flex;
+  justify-content: $position;
+  align-items: center;
+}

@@ -1,0 +1,28 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.locations {
+  width: 100vw;
+  height: 80vh;
+  @include background;
+  position: fixed;
+  top: 10vh;
+  border-radius: 5px;
+
+  .location {
+    width: 80%;
+    margin: auto;
+
+    button {
+      color: $mainFontColor;
+      width: 100%;
+      height: 8vh;
+      margin-bottom: 1vh;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 5px;
+      font-size: 1.3rem;
+      text-align: left;
+    }
+  }
+}

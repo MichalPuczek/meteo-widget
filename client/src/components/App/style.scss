@@ -1,0 +1,41 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    @include background;
+  }
+
+  // RESPONSIVE :
+  // 1. iPads and tablets
+  @media screen and (min-width: 481px) and (max-width: 768px)
+  {
+    .wrapper {
+      width: 400px;
+    }
+  }
+
+  // 2. Small screens and laptops
+  @media screen and (min-width: 769px) and (max-width: 1024px)
+  {
+    .wrapper {
+      width: 500px;
+    }
+  }
+
+  // 3. Desktops and large screens
+  @media screen and (min-width: 1025px) and (max-width: 1200px)
+  {
+    .wrapper {
+      width: 600px;
+    }
+  }
+
+  // 4. Extra large screens
+  @media screen and (min-width: 1201px)
+  {
+    .wrapper {
+      width: 700px;
+    }
+  }

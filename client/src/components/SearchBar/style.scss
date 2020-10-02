@@ -1,0 +1,41 @@
+.input {
+  overflow: auto; // it prevents the margins to collapse: https://stackoverflow.com/questions/1762539/margin-on-child-element-moves-parent-element
+  width: 60%;
+  margin: auto;
+  height: 13vh;
+
+  form {
+    margin-top: 5vh;
+    
+    input {
+      width: 90%;
+      background: transparent;
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 1vh;
+      font-size: calc(12px + 2vw);
+      color: white;
+    }
+  }
+}
+
+
+
+
+//   // form {
+//   //   width: 70vw;
+//   //   margin: auto;
+//   //   border: 1px solid white;
+//   //   border-radius: 5px;
+//   //   margin-top: 5vh;
+
+//     input {
+//       width: 70vw;
+//       margin: auto;
+//       border: 1px solid white;
+//       border-radius: 5px;
+//       margin-top: 10vh;
+//     }
+//     }
+//   // }
+

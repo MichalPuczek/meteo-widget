@@ -1,0 +1,6 @@
+@import 'src/styles/mixins';
+
+.logo {
+  @include headerANDfooter;
+  @include flexedANDcentered(center);
+}
