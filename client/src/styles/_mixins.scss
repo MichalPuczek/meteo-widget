@@ -5,9 +5,9 @@
   background-size: contain;
 }
 
-@mixin headerANDfooter {
+@mixin headerANDfooter ($property) {
   height: 10vh;
-  border-top: 3px solid white;
+  #{$property}: 3px solid white;
 }
 
 @mixin flexedANDcentered ($position) {

@@ -1,7 +1,7 @@
 @import 'src/styles/mixins';
 
 .menu {
-  @include headerANDfooter;
+  @include headerANDfooter(border-top);
   @include flexedANDcentered(flex-end);
   padding: 1vh;
 }

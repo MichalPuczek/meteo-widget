@@ -5,6 +5,11 @@
     width: 100vw;
     height: 100vh;
     @include background;
+
+    .toast {
+      margin-top: 25vh;
+      font-size: 1rem;
+    }
   }
 
   // RESPONSIVE :

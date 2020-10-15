@@ -1,6 +1,7 @@
 @import 'src/styles/mixins';
 
 .logo {
-  @include headerANDfooter;
+  @include headerANDfooter(border-bottom);
   @include flexedANDcentered(center);
+  text-transform: uppercase;
 }

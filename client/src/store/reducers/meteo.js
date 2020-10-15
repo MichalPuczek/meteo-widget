@@ -1,24 +1,16 @@
 import {
   GET_SEARCH, GET_SUBMIT, GET_SUBMIT_SUCCESS, GET_SUBMIT_ERROR,
   TOGGLER_MENU,
-  GET_SAVED_LOCATION_DATA, GET_SAVED_LOCATION_DATA_SUCCESS, 
-  GET_SAVED_LOCATION_DATA_ERROR,
-  GET_CLICKED_CITY, GET_CLICKED_CITY_SUCCESS, GET_CLICKED_CITY_ERROR,
+  GET_SELECTED_CITY, GET_SELECTED_CITY_SUCCESS, GET_SELECTED_CITY_ERROR,
+  GET_GEOLOCATION, GET_GEOLOCATION_SUCCESS, GET_GEOLOCATION_ERROR,
 } from '../actions/meteo-actions';
 
 // == Initial state of SearchBar
 export const initialState = {
   searchInput: '',
-  savedCity: 'Warsaw',
-  mainSavedCity: {temp: 0, feels_like: 0},
-  navCities: [
-    {city: 'Paris',
-     main: {},
-    },
-    {city: 'Chorzow',
-     main: {},
-    },
-  ],
+  navCities: [],
+  city: '',
+  main: {},
   error: '',
   navOpen: false,
 };
@@ -44,7 +36,8 @@ export default (state = initialState, action = {}) => {
             city: state.searchInput,
             main: action.payload,
           }
-        ]
+        ],
+        searchInput: '',
       };
     case GET_SUBMIT_ERROR:
       return {
@@ -56,33 +49,35 @@ export default (state = initialState, action = {}) => {
         ...state,
         navOpen: !state.navOpen,
       };
-    case GET_SAVED_LOCATION_DATA:
+    case GET_GEOLOCATION:
       return {
         ...state,
       };
-    case GET_SAVED_LOCATION_DATA_SUCCESS:
+    case GET_GEOLOCATION_SUCCESS:
       return {
         ...state,
-        mainSavedCity: action.payload,
-      };
-    case GET_SAVED_LOCATION_DATA_ERROR:
+        city: action.payload.name,
+        main: action.payload.main,
+      }
+    case GET_GEOLOCATION_ERROR:
       return {
         ...state,
         error: action.payload,
-      };
-    case GET_CLICKED_CITY:
+      }
+    case GET_SELECTED_CITY:
       return {
         ...state,
-        savedCity: action.payload.city,
+        city: action.payload.city,
       };
-    case GET_CLICKED_CITY_SUCCESS:
+    case GET_SELECTED_CITY_SUCCESS:
       return {
         ...state,
-        mainSavedCity: action.payload,
+        main: action.payload,
       };
-    case GET_CLICKED_CITY_ERROR:
+    case GET_SELECTED_CITY_ERROR:
       return {
         ...state,
+        error: action.payload,
       };
     default:
       return state;

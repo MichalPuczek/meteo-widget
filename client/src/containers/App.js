@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import App from '../components/App';
 
 // == IMPORT action creators
-import { getSavedLocationData } from '../store/actions/meteo-actions';
+import { getGeolocation } from '../store/actions/meteo-actions';
 
 const mapStateToProps = (state) => ({
   navOpen: state.meteo.navOpen,
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToState = (dispatch) => ({
 
-  handleSavedLocationData: () => {
-    dispatch(getSavedLocationData());
+  handleGeolocation: ({lat, lon}) => {
+    dispatch(getGeolocation({lat, lon}));
   },
 
 });

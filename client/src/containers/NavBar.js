@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
 
 // == IMPORT action creators
-import { togglerMenu, getClickedCity } from '../store/actions/meteo-actions';
+import { togglerMenu, getSelectedCity } from '../store/actions/meteo-actions';
 
 const mapStateToProps = (state) => ({
   navCities: state.meteo.navCities,
@@ -14,8 +14,8 @@ const mapDispatchToState = (dispatch) => ({
     dispatch(togglerMenu());
   },
 
-  handleClickedCity: (city) => {
-    dispatch(getClickedCity(city));
+  handleSelectedCity: (city) => {
+    dispatch(getSelectedCity(city));
   },
 
 });

@@ -1,14 +1,19 @@
 export const GET_SEARCH = 'GET_SEARCH';
+
 export const GET_SUBMIT = 'GET_SUBMIT';
 export const GET_SUBMIT_SUCCESS = 'GET_SUBMIT_SUCCESS';
 export const GET_SUBMIT_ERROR = 'GET_SUBMIT_ERROR';
+
 export const TOGGLER_MENU = 'TOGGLER_MENU';
-export const GET_SAVED_LOCATION_DATA = 'GET_SAVED_LOCATION_DATA';
-export const GET_SAVED_LOCATION_DATA_SUCCESS = 'GET_SAVED_LOCATION_DATA_SUCCESS';
-export const GET_SAVED_LOCATION_DATA_ERROR = 'GET_SAVED_LOCATION_DATA_ERROR';
-export const GET_CLICKED_CITY = 'GET_CLICKED_CITY';
-export const GET_CLICKED_CITY_SUCCESS = 'GET_CLICKED_CITY_SUCCESS';
-export const GET_CLICKED_CITY_ERROR = 'GET_CLICKED_CITY_ERROR';
+
+export const GET_GEOLOCATION = 'GET_GEOLOCATION';
+export const GET_GEOLOCATION_SUCCESS = 'GET_GEOLOCATION_SUCCESS';
+export const GET_GEOLOCATION_ERROR = 'GET_GEOLOCATION_ERROR';
+
+export const GET_SELECTED_CITY = 'GET_SELECTED_CITY';
+export const GET_SELECTED_CITY_SUCCESS = 'GET_SELECTED_CITY_SUCCESS';
+export const GET_SELECTED_CITY_ERROR = 'GET_SELECTED_CITY_ERROR';
+
 
 export const getSearch = (payload) => ({
   type: GET_SEARCH,
@@ -29,35 +34,39 @@ export const getSubmitError = (payload) => ({
   payload,
 });
 
-export const getSavedLocationData = () => ({
-  type: GET_SAVED_LOCATION_DATA,
-});
-
-export const getSavedLocationDataSuccess = (payload) => ({
-  type: GET_SAVED_LOCATION_DATA_SUCCESS,
+// GEOLOCATON
+export const getGeolocation = (payload) => ({
+  type: GET_GEOLOCATION,
   payload,
 });
 
-export const getSavedLocationDataError = (payload) => ({
-  type: GET_SAVED_LOCATION_DATA_ERROR,
+export const getGeolocationSuccess = (payload) => ({
+  type: GET_GEOLOCATION_SUCCESS,
   payload,
 });
 
-export const getClickedCity = (payload) => ({
-  type: GET_CLICKED_CITY,
+export const getGeolocationError = (payload) => ({
+  type: GET_GEOLOCATION_ERROR,
   payload,
 });
 
-export const getClickedCitySuccess = (payload) => ({
-  type: GET_CLICKED_CITY_SUCCESS,
+// SELECTED CiTY
+export const getSelectedCity = (payload) => ({
+  type: GET_SELECTED_CITY,
   payload,
 });
 
-export const getClickedCityError = (payload) => ({
-  type: GET_CLICKED_CITY_ERROR,
+export const getSelectedCitySuccess = (payload) => ({
+  type: GET_SELECTED_CITY_SUCCESS,
+  payload,
+});
+
+export const getSelectedCityError = (payload) => ({
+  type: GET_SELECTED_CITY_ERROR,
   payload
 });
 
+// TOGGLER MENU
 export const togglerMenu = () => ({
   type: TOGGLER_MENU,
 });

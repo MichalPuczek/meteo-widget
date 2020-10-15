@@ -9,12 +9,12 @@ import SearchBar from '../../containers/SearchBar';
 // == IMPORT Styles
 import './style.scss';
 
-const NavBar = ({ navCities, handleTogglerMenu, handleClickedCity }) => {
+const NavBar = ({ navCities, handleTogglerMenu, handleSelectedCity }) => {
 
   return (
     <div className="locations">
       <SearchBar />
-      
+
         {
           navCities.map((city) => {
             return (
@@ -23,11 +23,10 @@ const NavBar = ({ navCities, handleTogglerMenu, handleClickedCity }) => {
                 <button
                   onClick={() => {
                     handleTogglerMenu();
-                    handleClickedCity({
+                    handleSelectedCity({
                       city: city.city,
                       main: city.main,
                     })
-                    console.log('clicked city', city);
                   }}
                 >
                   {city.city}
@@ -37,8 +36,10 @@ const NavBar = ({ navCities, handleTogglerMenu, handleClickedCity }) => {
             )
           })
         }
-      
+
     </div>
+
+    
   )
 };
 

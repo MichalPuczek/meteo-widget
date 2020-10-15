@@ -14,6 +14,7 @@ const SearchBar = ({ handleGetSearch, searchInput, handleGetSubmit }) => {
       >
         <input 
           type="text"
+          placeholder="Nouvelle ville..."
           onChange={(evt) => {
             const text = evt.target.value;
             handleGetSearch(text);

@@ -4,13 +4,21 @@
   overflow: auto;
 
   .city {
-    margin-top: 2vh;
+    margin: 2vh 0 3vh 0;
     text-align: center;
     font-size: 2rem;;
   }
 
   .info {
     text-align: left;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    width: 80%;
+    margin: auto;
+  }
+
+  .waiting {
+    text-align: center;
+    margin-top: 30vh;
   }
 }

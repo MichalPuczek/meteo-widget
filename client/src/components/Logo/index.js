@@ -6,7 +6,7 @@ import './style.scss';
 const Logo = () => {
   return (
     <div className="logo">
-      My Weather
+      Raincheck
     </div>
   )
 };

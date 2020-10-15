@@ -1,11 +1,13 @@
 // == IMPORT axios
 import axios from 'axios';
 
+import { toast } from 'react-toastify';
+
 // == IMPORT types and action creators
 import { 
   GET_SUBMIT, getSubmitSuccess, getSubmitError, 
-  GET_SAVED_LOCATION_DATA, getSavedLocationDataSuccess, getSavedLocationDataError,
-  GET_CLICKED_CITY, getClickedCitySuccess, getClickedCityError,
+  GET_SELECTED_CITY, getSelectedCitySuccess, getSelectedCityError,
+  GET_GEOLOCATION, getGeolocationSuccess, getGeolocationError,
 } from '../store/actions/meteo-actions';
 
 // == middleware
@@ -13,26 +15,25 @@ const meteoMiddleware = (store) => (next) => (action) => {
   next(action);
   switch (action.type) {
 
-    // MV that launches useEffect to get data about the saved city
-    case GET_SAVED_LOCATION_DATA: {
+    // MV launched by useEffect() to get data about of geolocalisation
+    case GET_GEOLOCATION: {
 
-      const city = store.getState().meteo.savedCity;
+      const { lat, lon } = action.payload;
       const API_KEY = process.env.REACT_APP_API_KEY;
-      const url = `${process.env.REACT_APP_API_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`;
-
+      const url = `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+    
       axios({
         method: 'get',
         url
       })
         .then((res) => {
-          store.dispatch(getSavedLocationDataSuccess(res.data.main));
+          store.dispatch(getGeolocationSuccess(res.data));
         })
         .catch((e) => {
-          console.log('je suis dans le rrror');
-          store.dispatch(getSavedLocationDataError('upsss'));
+          store.dispatch(getGeolocationError('Geolocation failed'));
         });
       break;
-    }
+    }   
 
     // MV that is called each ...
     case GET_SUBMIT: {
@@ -48,13 +49,14 @@ const meteoMiddleware = (store) => (next) => (action) => {
           store.dispatch(getSubmitSuccess(res.data.main));
         })
         .catch((e) => {
-          store.dispatch(getSubmitError('PB'));
+          store.dispatch(getSubmitError('Searched location has not been found'));
+          toast.error('Searched location has not been found');
         });
       break;
     }
 
     // MV
-    case GET_CLICKED_CITY: {
+    case GET_SELECTED_CITY: {
       const { city } = action.payload;
       const API_KEY = process.env.REACT_APP_API_KEY;
       const url = `${process.env.REACT_APP_API_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`;
@@ -64,11 +66,10 @@ const meteoMiddleware = (store) => (next) => (action) => {
         url
       })
         .then((res) => {
-          store.dispatch(getClickedCitySuccess(res.data.main));
-          console.log('resssss', res.data);
+          store.dispatch(getSelectedCitySuccess(res.data.main));
         })
         .catch((e) => {
-          store.dispatch(getClickedCityError('PB'));
+          store.dispatch(getSelectedCityError('Searched location has not been found'));
         });
       break;
     }
