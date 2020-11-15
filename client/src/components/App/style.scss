@@ -4,6 +4,7 @@
 .wrapper {
   width: 100vw;
   height: 100vh;
+  margin: auto;
   @include background;
 
   .toast {
@@ -16,27 +17,27 @@
 // 1. iPads and tablets
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .wrapper {
-    width: 400px;
+    width: 80vw;
   }
 }
 
 // 2. Small screens and laptops
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .wrapper {
-    width: 500px;
+    width: 60vw;
   }
 }
 
 // 3. Desktops and large screens
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
   .wrapper {
-    width: 600px;
+    width: 40vw;
   }
 }
 
 // 4. Extra large screens
 @media screen and (min-width: 1201px) {
   .wrapper {
-    width: 700px;
+    width: 40vw;
   }
 }

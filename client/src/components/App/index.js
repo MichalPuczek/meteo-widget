@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // == IMPORT Styles
-import './style.scss';
+import "./style.scss";
 
 // == IMPORT Containers
-import MeteoWidget from '../../containers/MeteoWidget';
-import NavToggler from '../../containers/NavToggler';
-import NavBar from '../../containers/NavBar';
+import MeteoWidget from "../../containers/MeteoWidget";
+import NavToggler from "../../containers/NavToggler";
+import NavBar from "../../containers/NavBar";
 
 // == IMPORT Components
-import Logo from '../Logo';
+import Logo from "../Logo";
 
 // COMPONENT APP
 const App = ({ handleGeolocation, navOpen }) => {
-
   // Launchement of the first API request in order to upload data about geolocation or the saved location
   useEffect(() => {
-
-    if ('geolocation' in navigator) {
-
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
@@ -29,13 +26,14 @@ const App = ({ handleGeolocation, navOpen }) => {
         handleGeolocation({ lat, lon });
       });
     } else {
-      alert('Your browser doesn\'t support geolocalisation, in order to use the application, please select a city');
+      alert(
+        "Your browser doesn't support geolocalisation, in order to use the application, please select a city"
+      );
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="wrapper">
-
       <ToastContainer
         position="top-right"
         autoClose={3500}
@@ -48,13 +46,11 @@ const App = ({ handleGeolocation, navOpen }) => {
         pauseOnHover
         toastClassName="toast"
       />
-
       <Logo />
-      <MeteoWidget />
+      {navOpen ? <NavBar /> : <MeteoWidget />}
       <NavToggler />
-      {navOpen && <NavBar />}
     </div>
-  )
+  );
 };
 
 export default App;
