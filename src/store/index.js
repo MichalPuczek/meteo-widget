@@ -2,7 +2,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 
 // == IMPORT : local
-import rootReducer from '../store/reducers';
+import rootReducer from './reducers';
 import meteoMiddleware from '../middlewares/meteoMiddleware';
 
 // == Enhancers

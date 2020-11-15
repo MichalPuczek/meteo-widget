@@ -22,7 +22,6 @@ const App = ({ handleGeolocation, navOpen }) => {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        console.log(navigator.permissions.query);
         handleGeolocation({ lat, lon });
       });
     } else {
