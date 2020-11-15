@@ -1,12 +1,18 @@
+@import 'src/styles/mixins';
+@import 'src/styles/vars';
+
 .widget {
   height: 80vh;
   padding: 1vh;
   overflow: auto;
+  /*   @include background; */
+
 
   .city {
     margin: 2vh 0 3vh 0;
     text-align: center;
-    font-size: 2rem;;
+    font-size: 2rem;
+    ;
   }
 
   .info {

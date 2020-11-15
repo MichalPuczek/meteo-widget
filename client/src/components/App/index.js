@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // == IMPORT Styles
@@ -26,7 +26,7 @@ const App = ({ handleGeolocation, navOpen }) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         console.log(navigator.permissions.query);
-        handleGeolocation({lat, lon});
+        handleGeolocation({ lat, lon });
       });
     } else {
       alert('Your browser doesn\'t support geolocalisation, in order to use the application, please select a city');
@@ -36,22 +36,23 @@ const App = ({ handleGeolocation, navOpen }) => {
   return (
     <div className="wrapper">
 
-<ToastContainer
-  position="top-right"
-  autoClose={3500}
-  hideProgressBar={false}
-  newestOnTop={false}
-  closeOnClick
-  rtl={false}
-  pauseOnFocusLoss
-  draggable
-  pauseOnHover
-  toastClassName="toast"
-/>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName="toast"
+      />
 
       <Logo />
       <MeteoWidget />
-      {navOpen? <NavBar /> : <NavToggler />}
+      <NavToggler />
+      {navOpen && <NavBar />}
     </div>
   )
 };

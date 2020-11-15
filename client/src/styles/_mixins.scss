@@ -2,7 +2,7 @@
 
 @mixin background {
   background-image: $mainBackgroundImage;
-  background-size: contain;
+  background-size: cover;
 }
 
 @mixin headerANDfooter ($property) {
